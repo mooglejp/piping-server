@@ -469,7 +469,8 @@ export class Server {
       for (const receiver of receivers) {
         // Close a receiver
         if (receiver.res.connection !== undefined) {
-          receiver.res.connection.destroy();
+          // It looks unsafe.
+          // receiver.res.connection.destroy();
         }
       }
       this.logger.info(`sender on-close: '${path}'`);
